@@ -1,0 +1,29 @@
+hostname Accounts-Switch
+
+interface FastEthernet0/1
+ description Accounts-PC-1
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+
+interface FastEthernet0/2
+ description Accounts-PC-2
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+
+interface GigabitEthernet0/1
+ description Link-to-Main-Router
+ switchport mode access
+
+interface Vlan1
+ no ip address
+ shutdown
