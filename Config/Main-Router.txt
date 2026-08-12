@@ -1,0 +1,23 @@
+hostname Main-Router
+
+interface GigabitEthernet0/1
+ description Main-Router-Link-Accounts-Switch
+ ip address 192.168.40.1 255.255.255.128
+ no shutdown
+
+interface GigabitEthernet0/2
+ description Main-Router-Link-Delivery-Switch
+ ip address 192.168.40.129 255.255.255.128
+ no shutdown
+
+interface GigabitEthernet0/0
+ description Unused-Port
+ shutdown
+
+ip classless
+
+username admin privilege 15 secret 5 cisco
+line vty 0 4
+ login local
+ transport input ssh
+ logging synchronous
